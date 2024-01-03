@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service  //@Component gibi bir şeye de kullanılabilir initilaze etmek için
+@Service  //@Component gibi bir şey de kullanılabilir initilaze etmek için
 public class UserService {
 
     // Bir class'a ihtiyacımız olduğunda verdiğimiz annotation
