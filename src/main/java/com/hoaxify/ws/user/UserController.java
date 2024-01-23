@@ -3,21 +3,16 @@ package com.hoaxify.ws.user;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.hoaxify.ws.error.ApiError;
 import com.hoaxify.ws.shared.GenericMessage;
-
 import jakarta.validation.Valid;
 
 @RestController
@@ -28,8 +23,9 @@ public class UserController {
     @Autowired
     UserService usersService;
 
-    @PostMapping("/api/v1/users")
-    GenericMessage createUser(@Valid @RequestBody User user) {
+    
+    @PostMapping("/api/v1/users")  // Bu URL'e POST isteği atıldığında bu methodun çağrılmasını sağlıyor.
+    GenericMessage createUser(@Valid @RequestBody User user) {  // @RequestBody ile HTTP response içerisindeki JSON değerlerini User sınıfındaki parametreler ile eşler.
         usersService.save(user);
         return new GenericMessage("User is created");
     };
