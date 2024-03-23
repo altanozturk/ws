@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hoaxify.ws.error.ApiError;
 import com.hoaxify.ws.shared.GenericMessage;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 public class UserController {
@@ -49,6 +52,12 @@ public class UserController {
         // ek olarak apiError nesnesi dönecek
 
     }
+
+    @GetMapping("/deneme")
+    String getMethodName() {
+        return "test";
+    }
+    
 
     @ExceptionHandler(NotUniqueEmailException.class)
     ResponseEntity<ApiError> handleNotUniqueEmailEx(NotUniqueEmailException exception) {
